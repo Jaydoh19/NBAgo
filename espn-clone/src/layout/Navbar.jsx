@@ -69,8 +69,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
-      {/* Mobile Navbar */}
     </nav>
   )
 }
