@@ -1,4 +1,5 @@
 # 🏀 NBAgo (ESPN-Style Clone)
+# https://nba-go.vercel.app/
 
 A modern, responsive sports scoreboard web app inspired by ESPN.  
 Built with **React**, **Vite**, and **Tailwind CSS**, this project displays live, upcoming, and finished games with clean UI states and smooth navigation.
