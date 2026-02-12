@@ -3,6 +3,7 @@
 A modern, responsive sports scoreboard web app inspired by ESPN.  
 Built with **React**, **Vite**, and **Tailwind CSS**, this project displays live, upcoming, and finished games with clean UI states and smooth navigation.
 
+Note: I am using a free API so the team standings, and stats havent been implemeneted. I used what the free api had to offer which was games, scores, times, and the teams,
 
 ## 🚀 Features
 
