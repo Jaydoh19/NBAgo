@@ -41,7 +41,11 @@ const Hero = () => {
   const scheduledCount = (games ?? []).length
 
   return (
-    <section className='flex flex-col justify-center items-center mt-36 overflow-hidden mb-10'>
+    <section className="flex flex-col justify-center items-center
+             pt-[calc(env(safe-area-inset-top)+6rem)]
+             md:mt-36
+             overflow-x-hidden mb-10"
+    >
       <div className='md:w-3/4 md:py-10 md:px-10 py-6 px-6 rounded-2xl overflow-hidden relative'>
 
         {/* Background image */}
@@ -58,8 +62,10 @@ const Hero = () => {
               <p className='font-bold text-sm text-orange-400'>Live NBA Action</p>
             </div>
             <div className='mt-6 flex-nowrap max-w-lg text-center md:text-start'>
-              <p className='font-bold text-6xl'>NBA Live</p>
-              <span className='font-bold text-6xl bg-clip-text bg-linear-to-r from-orange-400 to-red-500 text-transparent'>
+              <p className="font-bold text-4xl sm:text-5xl md:text-6xl">
+                NBA Live
+              </p>
+              <span className='font-bold text-4xl sm:text-5xl md:text-6xl bg-clip-text bg-linear-to-r from-orange-400 to-red-500 text-transparent'>
                 Stats & Scores
               </span>
               <p className='mt-3 text-gray-400 text-xl '>
@@ -68,8 +74,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className='flex gap-2 items-center justify-center md:justify-start '>
-            <div className='mt-5 flex gap-2 items-center'>
+          <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
+            <div className="mt-5 w-full sm:w-auto flex gap-2 items-center justify-center">
               <div className='flex gap-2 items-center bg-[#1a1f2b] border-b border-gray-400/20 px-2 py-2 md:px-4 md:py-3 rounded-xl'>
                 <div className='bg-red-500/20 mr-2 p-2 rounded-xl'>
                   <Activity className="w-5 h-5 md:w-5 md:h-5 text-red-400" />
@@ -81,7 +87,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className='mt-5 flex gap-2 items-center'>
+            <div className="mt-5 w-full sm:w-auto flex gap-2 items-center justify-center">
               <div className='flex gap-2 items-center bg-[#1a1f2b] border-b border-gray-400/20 px-2 py-2 md:px-4 md:py-3 rounded-xl'>
                 <div className='bg-green-500/20 mr-2 p-2 rounded-xl'>
                   <Calendar className="w-5 h-5 md:w-5 md:h-5 text-green-300" />
@@ -93,7 +99,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className='mt-5 flex gap-2 items-center'>
+            <div className="mt-5 w-full sm:w-auto flex gap-2 items-center justify-center">
               <div className='flex gap-2 items-center bg-[#1a1f2b] border-b border-gray-400/20 px-2 py-2 md:px-4 md:py-3 rounded-xl'>
                 <div className='bg-yellow-500/20 mr-2 p-2 rounded-xl'>
                   <Trophy className="w-5 h-5 md:w-5 md:h-5 text-yellow-300" />
@@ -198,8 +204,8 @@ const Hero = () => {
                 <button
                   onClick={() => setConference('west')}
                   className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'west'
-                      ? 'bg-blue-700 text-white'
-                      : 'bg-transparent text-gray-400 hover:text-white'
+                    ? 'bg-blue-700 text-white'
+                    : 'bg-transparent text-gray-400 hover:text-white'
                     }`}
                 >
                   Western
@@ -207,8 +213,8 @@ const Hero = () => {
                 <button
                   onClick={() => setConference('east')}
                   className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'east'
-                      ? 'bg-red-600 text-white'
-                      : 'bg-transparent text-gray-400 hover:text-white'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-transparent text-gray-400 hover:text-white'
                     }`}
                 >
                   Eastern
@@ -258,8 +264,8 @@ const Hero = () => {
                 <button
                   onClick={() => setStats('points')}
                   className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'points'
-                      ? 'bg-yellow-500/20 text-yellow-400'
-                      : 'bg-transparent text-gray-400 hover:text-white'
+                    ? 'bg-yellow-500/20 text-yellow-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
                     }`}
                 >
                   Points
@@ -267,8 +273,8 @@ const Hero = () => {
                 <button
                   onClick={() => setStats('rebounds')}
                   className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'rebounds'
-                      ? 'bg-blue-500/20 text-blue-400'
-                      : 'bg-transparent text-gray-400 hover:text-white'
+                    ? 'bg-blue-500/20 text-blue-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
                     }`}
                 >
                   Rebounds
@@ -276,8 +282,8 @@ const Hero = () => {
                 <button
                   onClick={() => setStats('assists')}
                   className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'assists'
-                      ? 'bg-green-500/20 text-green-400'
-                      : 'bg-transparent text-gray-400 hover:text-white'
+                    ? 'bg-green-500/20 text-green-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
                     }`}
                 >
                   Assists
