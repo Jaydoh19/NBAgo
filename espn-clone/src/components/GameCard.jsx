@@ -86,14 +86,14 @@ export const GameCard = ({ game }) => {
               <img
                 src={NBA_TEAM_LOGOS[home.abbreviation]}
                 alt="Home-Team"
-                className="h-8 w-8 sm:h-9 sm:w-9 object-contain shrink-0"
+                className="h-6 w-6 sm:h-9 sm:w-9 object-contain shrink-0"
               />
               <div className=" flex flex-col leading-tight min-w-0 items-center">
-                <p className="font-semibold truncate text-xl">{home.city}</p>
+                <p className="font-semibold truncate text-sm">{home.city}</p>
                 <p className="text-md text-gray-400 truncate">{home.name}</p>
               </div>
             </div>
-            <p className={`font-bold shrink-0 text-xl ${homeWinning ? "text-white" : "text-gray-400"}`}>{homeScore}</p>
+            <p className={`font-bold shrink-0 text-base ${homeWinning ? "text-white" : "text-gray-400"}`}>{homeScore}</p>
           </div>
 
           {/* Team 2 */}
@@ -102,14 +102,14 @@ export const GameCard = ({ game }) => {
               <img
                 src={NBA_TEAM_LOGOS[away.abbreviation]}
                 alt="Away Team"
-                className="h-8 w-8 sm:h-9 sm:w-9 object-contain shrink-0"
+                className="h-6 w-6 sm:h-9 sm:w-9 object-contain shrink-0"
               />
               <div className="flex flex-col leading-tight min-w-0 items-center">
-                <p className="font-semibold truncate text-xl">{away.city}</p>
+                <p className="font-semibold truncate text-sm">{away.city}</p>
                 <p className="text-md text-gray-400 truncate">{away.name}</p>
               </div>
             </div>
-            <p className={`font-bold shrink-0 text-xl ${awayWinning ? "text-white" : "text-gray-400"}`}>{awayScore}</p>
+            <p className={`font-bold shrink-0 text-base ${awayWinning ? "text-white" : "text-gray-400"}`}>{awayScore}</p>
           </div>
         </div>
 
