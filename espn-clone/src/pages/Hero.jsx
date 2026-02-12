@@ -10,12 +10,17 @@ import dayjs from 'dayjs'
 
 import { useGames } from "../components/GamesContext.jsx";
 
+import { useFavoriteTeams } from "../components/FavoriteTeamContext.jsx";
+import { Heart } from "lucide-react";
+
 const Hero = () => {
   const [conference, setConference] = useState('west') // 'west' | 'east'
   const [stats, setStats] = useState('points') // 'points' | 'rebounds' | 'assists'
 
   // ✅ shared data from provider (no fetching here)
   const { games, loadingGames, gamesError } = useGames()
+
+  const { favoriteTeams, toggleFavoriteTeam } = useFavoriteTeams();
 
   function getTodayFormatted() {
     return dayjs().format('MMM D, YYYY')
@@ -104,11 +109,50 @@ const Hero = () => {
       </div>
 
       <div className='mt-10 mb-2 w-full md:w-3/4 rounded-2xl border border-gray-400/20 bg-linear-to-tr from-[#0d121d] to-[#1a1f2b] px-6 py-8 md:px-10 md:py-10 text-center'>
-        <div className='flex flex-col justify-center items-center space-y-3'>
-          <Star className='w-12 h-12 text-yellow-400' />
-          <p className='text-lg font-bold'>No Favorites Yet</p>
-          <p className='text-md text-gray-400'>Click the heart icon on teams or players to add them to your favorites!</p>
-        </div>
+        {favoriteTeams.length === 0 ? (
+          <div className='flex flex-col justify-center items-center space-y-3'>
+            <Star className='w-12 h-12 text-yellow-400' />
+            <p className='text-lg font-bold'>No Favorites Yet</p>
+            <p className='text-md text-gray-400'>
+              Click the heart icon on teams or players to add them to your favorites!
+            </p>
+          </div>
+        ) : (
+          <div>
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <p className="text-lg font-bold">Your Favorite Teams</p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {favoriteTeams.map((team) => (
+                <div
+                  key={team.id}
+                  className="relative rounded-2xl border border-white/10 bg-linear-to-tr from-[#0d121d] to-[#1a1f2b] p-4 text-center"
+                >
+                  <button
+                    onClick={() => toggleFavoriteTeam(team)}
+                    className="absolute right-3 top-3 rounded-full p-1.5 text-white/60 hover:text-white/90 hover:bg-white/10 transition"
+                    aria-label="Remove favorite team"
+                    title="Remove favorite"
+                  >
+                    <Heart className="h-5 w-5 fill-white text-white" />
+                  </button>
+
+                  <div className="flex justify-center">
+                    <img
+                      className="w-12 h-12 object-contain"
+                      src={team.logo}
+                      alt={team.name}
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <p className="mt-3 text-sm font-bold">{team.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className=' mb-8 w-full md:w-3/4 rounded-2xl px-6 py-8 md:px-10 md:py-10 text-center'>
@@ -153,21 +197,19 @@ const Hero = () => {
               <div className='flex bg-slate-700/50 rounded-xl p-1'>
                 <button
                   onClick={() => setConference('west')}
-                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${
-                    conference === 'west'
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'west'
                       ? 'bg-blue-700 text-white'
                       : 'bg-transparent text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   Western
                 </button>
                 <button
                   onClick={() => setConference('east')}
-                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${
-                    conference === 'east'
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'east'
                       ? 'bg-red-600 text-white'
                       : 'bg-transparent text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   Eastern
                 </button>
@@ -215,31 +257,28 @@ const Hero = () => {
               <div className='flex items-center mt-3'>
                 <button
                   onClick={() => setStats('points')}
-                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${
-                    stats === 'points'
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'points'
                       ? 'bg-yellow-500/20 text-yellow-400'
                       : 'bg-transparent text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   Points
                 </button>
                 <button
                   onClick={() => setStats('rebounds')}
-                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${
-                    stats === 'rebounds'
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'rebounds'
                       ? 'bg-blue-500/20 text-blue-400'
                       : 'bg-transparent text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   Rebounds
                 </button>
                 <button
                   onClick={() => setStats('assists')}
-                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${
-                    stats === 'assists'
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'assists'
                       ? 'bg-green-500/20 text-green-400'
                       : 'bg-transparent text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   Assists
                 </button>

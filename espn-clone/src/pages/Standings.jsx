@@ -7,7 +7,7 @@ const Standings = () => {
   const [conference, setConference] = useState("west");
 
   return (
-    <section className="mt-28 sm:mt-32 md:mt-36 lg:mt-40 w-full flex justify-center px-3 sm:px-6">
+    <section className="mt-28 mb-15 sm:mt-32 md:mt-36 lg:mt-40 w-full flex justify-center px-3 sm:px-6">
       <div className="w-full sm:w-11/12 md:w-5/6 lg:w-3/4 xl:max-w-5xl">
         <div className="rounded-xl bg-linear-to-tr from-[#0d121d] to-[#1a1f2b] border border-gray-400/20 p-4 sm:p-5 md:p-6 w-full">
 

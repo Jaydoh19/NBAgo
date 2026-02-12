@@ -1,17 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import "./index.css";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import { GamesProvider } from './components/GamesContext'
+import { FavoriteTeamProvider } from './components/FavoriteTeamContext'
+import "./index.css"
 
-import { GamesProvider } from "./components/GamesContext.jsx";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <GamesProvider>
-        <App />
+        <FavoriteTeamProvider>
+          <App />
+        </FavoriteTeamProvider>
       </GamesProvider>
     </BrowserRouter>
   </React.StrictMode>
-);
+)
